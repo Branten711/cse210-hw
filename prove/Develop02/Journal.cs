@@ -1,18 +1,3 @@
-using System;
-using System.Diagnostics.Contracts;
-using System.Security.Cryptography.X509Certificates;
-using System.IO;
-class Program
-{
-
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Welcome to the Journal Program!");
-        Journal run = new Journal();
-        run.Run();
-        Console.WriteLine("Thank you for writing in your journal");
-    }
-}
 public class Journal
 {
 // public string _filename = "journal.txt";
@@ -123,44 +108,5 @@ public void ReadFile()
 
         Console.WriteLine($"Loaded {entries.Count} entries.");
     }
-
-}
-public class Entry
-{
-    public string _date;
-    public string _prompt;
-    public string _entry;
-    
-
-  public void Create(string prompt)
-    {
-        DateTime theCurrentTime = DateTime.Now;
-        _date = theCurrentTime.ToShortDateString();
-        Console.Write("Do you have a prompt you would like to use? (yes / no): ");
-        string ans = Console.ReadLine();
-        if (ans == "yes")
-        {
-            Console.Write("Enter Prompt:> ");
-            prompt = Console.ReadLine();
-            _prompt=prompt;
-            Console.WriteLine();
-            Console.WriteLine(prompt);
-            Console.Write(">");
-            _entry = Console.ReadLine();
-        }
-        else
-        {
-            Console.WriteLine(prompt);
-            Console.Write(">");
-            _entry = Console.ReadLine();
-            _prompt = prompt;
-        }
-        
-    }
-    public string FormattedEntry()
-    {
-        return ($"Date: {_date} - Prompt: {_prompt} \n>{_entry}");
-    }
-
 
 }
