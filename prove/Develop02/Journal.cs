@@ -5,25 +5,15 @@ public class Journal
 //An explanation would be awesome.
 public string _filename = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.FullName,"journal.txt");
 
-public List<Entry> entries = new List<Entry>();
+public List<Entry> _entries = new List<Entry>();
 public bool running = true;
-List <string> journalPrompts = new List<string>
-{
-     "What was the best part of your day?",
-    "What challenged you today?",
-    "What are you grateful for?",
-    "What did you learn today?",
-    "How did you see personal growth today?"
-};
-
 
 public void Run()
     {
         while (running)
         {
               
-            Random prom = new Random();
-            string prompt = journalPrompts[prom.Next(journalPrompts.Count)];
+            
             
             PrintMenu();
 
@@ -33,12 +23,12 @@ public void Run()
             if (input == "1")
             {
                 Entry enter = new Entry();
-                enter.Create(prompt);
-                entries.Add(enter);
+                enter.Create();
+                _entries.Add(enter);
             }
             else if (input == "2")
             {
-                foreach ( Entry entry in entries)
+                foreach ( Entry entry in _entries)
                 {
                     Console.WriteLine("####################");
                     Console.WriteLine(entry.FormattedEntry());
@@ -52,15 +42,14 @@ public void Run()
             
             else if (input == "4")SaveToFile();
             
-                
-            
+        
             else if (input == "5") running = false;
 
             else Console.WriteLine("You can't do that please :( try again");
             
         }
     }
-    
+
  static void PrintMenu()
     {
        Console.WriteLine("\nPlease select one of the following choices:"); 
@@ -76,7 +65,7 @@ public void SaveToFile()
         
         using (StreamWriter outputFile = new StreamWriter(_filename))
         {
-                foreach (Entry entry in entries)
+                foreach (Entry entry in _entries)
                 {
                 outputFile.WriteLine($"{entry.FormattedEntry()},");
                 // Console.WriteLine(entry.FormattedEntry());
@@ -85,7 +74,7 @@ public void SaveToFile()
     }
 public void ReadFile()
    {
-        entries.Clear();
+        _entries.Clear();
         string[] lines = File.ReadAllLines(_filename);
 
         for (int i = 0; i < lines.Length; i += 2)
@@ -103,10 +92,9 @@ public void ReadFile()
             entry._prompt = prompt;
             entry._entry = body;
 
-            entries.Add(entry);
+            _entries.Add(entry);
         }
-
-        Console.WriteLine($"Loaded {entries.Count} entries.");
+        Console.WriteLine($"Loaded {_entries.Count} entries.");
     }
-
 }
+

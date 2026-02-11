@@ -1,0 +1,11 @@
+DAY 1
+Need to specify what you want the variable ot be. (Ex: int, string, double, bool, )
+
+double is for a float data type
+
+multy line comment /* ... */ or // for single line
+
+Uppercase the first letter of the variable name. 
+
+input // Console.WriteLine("Value of x is " + x);
+output // Value of x is 5 (Where x was defined as x = 5)
