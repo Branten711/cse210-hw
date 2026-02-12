@@ -1,9 +1,9 @@
 public class Journal
 {
-// public string _filename = "journal.txt";
+public string _filename = "journal.txt";
 // I was having trouble getting it to show up in the file that it shares a folder with so this is how AI helped me fix it. 
 //An explanation would be awesome.
-public string _filename = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.FullName,"journal.txt");
+//public string _filename = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.FullName,"journal.txt");
 
 public List<Entry> _entries = new List<Entry>();
 public bool running = true;
