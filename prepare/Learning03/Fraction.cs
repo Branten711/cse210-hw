@@ -41,10 +41,11 @@ public class Fraction
         return text;
     }
     public double GetDecimalValue()
-    {
+    { 
         double dec = (double)_top / _bottom;
         return dec;
     }
+    //Referen
 }
 // Fraction)
 // Fraction(wholeNumber: int)

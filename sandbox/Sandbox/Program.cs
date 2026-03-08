@@ -11,6 +11,30 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
+            //Inheritance passes attributes from parent to child.
+            /// Parent <> Base    <> Super
+            ///    |        |         |     (no fill arrow) 
+            /// Child  <> Derived <> Sub
+            /// 
+            /// Can be defined as a trait.
+            
+                Console.Write("+");
+
+                Thread.Sleep(500);
+
+                Console.Write("\b \b"); // Erase the + character
+                Console.Write("-"); // Replace it with the - character
+
+
+
+
+
+
+
+
+
+
+
             //Console.WriteLine("Hello Sandbox World!");
             //Console.WriteLine("World");
             //int x = 5;
@@ -176,6 +200,9 @@ namespace Sandbox
         //  pb.Display();
 
 
+
+        // Constructer ####
+        //public ClassName(string name, int age) { _string = string; _age = age;}
         }
     }
 }
