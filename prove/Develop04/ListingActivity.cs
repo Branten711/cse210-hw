@@ -33,9 +33,9 @@ public class ListingActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-        Console.Write(">");
-        string response = Console.ReadLine();
-        _responses.Add(response);
+            Console.Write(">");
+            string response = Console.ReadLine();
+            _responses.Add(response);
         }
         Console.WriteLine($"You listed {_responses.Count()} items!");
         Console.WriteLine();
